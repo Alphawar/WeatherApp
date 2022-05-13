@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.logo, .changeTheme {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.logo svg {
+    width: 65px;
+    height: 65px;
+}
+
+.title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(71, 147, 255);
+}
+
+.CitySelect {
+    margin-left: 20px;
+}
+
+.CountrySelect, .CitySelect{
+    outline: none;
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+}

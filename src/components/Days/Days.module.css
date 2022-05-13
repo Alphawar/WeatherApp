@@ -1,0 +1,17 @@
+.days {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    overflow: hidden;
+    max-height: 300px;
+    width: 100%;
+    background: var(--component-background-default);
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 20px;
+    transition: 0.4s ease-in-out;
+}
+
+.days_active {
+    max-height: 600px;
+}

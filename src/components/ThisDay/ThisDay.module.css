@@ -1,0 +1,45 @@
+.thisDay {
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    background: var(--components-background-default);
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+    border-radius: 20px;
+}
+
+.thisDay__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.thisDay__top img {
+    width: 119px;
+    height: 119px;
+    pointer-events: none;
+}
+
+.thisDay__img {
+    border: 1px solid var(--card-background-default);
+    background-color: var(--card-background-default);
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+    border-radius: 20px;
+}
+
+.thisDay__temp {
+    font-size: 96px;
+    font-weight: 500;
+    color: #4793ff;
+}
+
+.thisDay__day {
+    font-size: 40px;
+    color: var(--text-color-default);
+}
+
+.thisDay__time, .thisDay__city, .thisDay__weather {
+    color: #939cb0;
+    font-size: 25px;
+}

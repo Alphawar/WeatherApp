@@ -1,0 +1,38 @@
+.item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.item:last-of-type {
+    margin-bottom: 0;
+}
+
+.indicator {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 1px 4px 10px -1px rgba(71, 147, 255, 0.2);
+    border-radius: 50%;
+}
+
+.indicatorName {
+    color: #939cb0;
+}
+
+.indicatorValue {
+    color: var(--text-color-default);
+}
+
+.indicator, .indicatorName {
+    margin-right: 20px;
+}
+
+.indicatorName, .indicatorValue {
+    font-size: 14px;
+    z-index: 100;
+}
