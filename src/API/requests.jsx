@@ -10,7 +10,7 @@ const twoWeeksWeather = 'https://api.openweathermap.org/data/2.5/forecast/daily'
 
 // http://openweathermap.org/img/wn/10d@2x.png img url
 
-export const getCitiesAndCountries = async (setCities, setCurrentWeather, setCountries, setDailyWeekWeather, setChartData, setIsLoaded, setTwoWeeksForecast) => {
+export const getStartetAssets = async (setCities, setCurrentWeather, setCountries, setDailyWeekWeather, setChartData, setIsLoaded, setTwoWeeksForecast) => {
     setIsLoaded(true)
     setTimeout( async () => {
         navigator.geolocation.getCurrentPosition( async pos => {    
@@ -59,10 +59,10 @@ export const getCitiesAndCountries = async (setCities, setCurrentWeather, setCou
         })
         setCountries(responseCountries.data)
         setIsLoaded(false) 
-    }, 4000)
+    }, 5000)
 } 
 
-export const getCityWeather = async (setCurrentWeather, setIsLoaded, cities, selectedCity, setDailyWeekWeather, setChartData, setTwoWeeksForecast) => {
+export const getAssetsByCity = async (setCurrentWeather, setIsLoaded, cities, selectedCity, setDailyWeekWeather, setChartData, setTwoWeeksForecast) => {
     setIsLoaded(true)
     setTimeout( async () => {
         const city = cities.filter( el => el.id === selectedCity?.value)
@@ -96,5 +96,5 @@ export const getCityWeather = async (setCurrentWeather, setIsLoaded, cities, sel
         const responseTwoWeeks = await axios.get(`${twoWeeksWeather}?lat=${city[0]?.coord?.lat}&lon=${city[0]?.coord?.lon}&cnt=17&appid=${API_KEY}`)
         setTwoWeeksForecast(responseTwoWeeks.data)
         setIsLoaded(false)
-    }, 2000)
+    }, 3000)
 }

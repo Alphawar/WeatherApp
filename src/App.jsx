@@ -4,7 +4,7 @@ import HomePage from './components/HomePage/HomePage';
 import PopUp from './components/PopUp/PopUp';
 import { useEffect, useState } from 'react';
 import Loader from './components/Loader/Loader';
-import { getCitiesAndCountries, getCityWeather } from './API/requests';
+import { getStartetAssets, getAssetsByCity } from './API/requests';
 import {AnimatePresence} from 'framer-motion';
 
 function App() {
@@ -22,12 +22,12 @@ function App() {
   const [twoWeeksForecast, setTwoWeeksForecast] = useState(null);
   
   useEffect( () => {
-    getCitiesAndCountries(setCities, setCurrentWeather, setCountries, setDailyWeekWeather, setChartData, setIsLoaded, setTwoWeeksForecast);
+    getStartetAssets(setCities, setCurrentWeather, setCountries, setDailyWeekWeather, setChartData, setIsLoaded, setTwoWeeksForecast);
   }, [])
 
   useEffect( () => {
     if(selectedCity){
-      getCityWeather(setCurrentWeather, setIsLoaded, cities, selectedCity, setDailyWeekWeather, setChartData, setTwoWeeksForecast);
+      getAssetsByCity(setCurrentWeather, setIsLoaded, cities, selectedCity, setDailyWeekWeather, setChartData, setTwoWeeksForecast);
     }
   }, [selectedCity])
 
