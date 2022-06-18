@@ -21,7 +21,7 @@ export const getStartetAssets = async (setCities, setCurrentWeather, setCountrie
             const responseHourly = await axios.get(`${dailyForecast}?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&exclude=current,minutely,daily,alerts&appid=${API_KEY}`)
             const responseHistory = await axios.get(`${historyWeather}?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&dt=${responseCurrent.data.dt}&appid=${API_KEY}`)
             setChartData({
-                labels: responseHourly.data.hourly.filter( el => getProperTime(el.dt, 'dayNumber') === (new Date().getDay() + 2)).map( el => getProperTime(el.dt, 'time')),
+                labels: responseHourly.data.hourly.filter( el => getProperTime(el.dt, 'dayNumber') === ((new Date().getDay() + 2) > 7 ? (new Date().getDay() + 2) - 7 : (new Date().getDay() + 2))).map( el => getProperTime(el.dt, 'time')),
                 datasets: [{
                     label: 'Today',
                     data: responseHistory.data.hourly.concat(responseHourly.data.hourly.filter( el => getProperTime(el.dt, 'dayNumber') === (new Date().getDay() + 1))).map( el => getTempInC(el.temp)),
@@ -33,7 +33,7 @@ export const getStartetAssets = async (setCities, setCurrentWeather, setCountrie
                 },
                 {
                     label: 'Tomorrow',
-                    data: responseHourly.data.hourly.filter( el => getProperTime(el.dt, 'dayNumber') === (new Date().getDay() + 2)).map( el => getTempInC(el.temp)),
+                    data: responseHourly.data.hourly.filter( el => getProperTime(el.dt, 'dayNumber') === ((new Date().getDay() + 2) > 7 ? (new Date().getDay() + 2) - 7 : (new Date().getDay() + 2))).map( el => getTempInC(el.temp)),
                     tension: 0.3,
                     borderColor: 'orange',
                     backgroundColor: 'orange',
@@ -73,7 +73,7 @@ export const getAssetsByCity = async (setCurrentWeather, setIsLoaded, cities, se
         const responseHourly = await axios.get(`${dailyForecast}?lat=${city[0]?.coord?.lat}&lon=${city[0]?.coord?.lon}&exclude=current,minutely,daily,alerts&appid=${API_KEY}`)
         const responseHistory = await axios.get(`${historyWeather}?lat=${city[0]?.coord?.lat}&lon=${city[0]?.coord?.lon}&dt=${response.data.dt}&appid=${API_KEY}`)
         setChartData({
-            labels: responseHourly.data.hourly.filter( el => getProperTime(el.dt, 'dayNumber') === (new Date().getDay() + 2)).map( el => getProperTime(el.dt, 'time')),
+            labels: responseHourly.data.hourly.filter( el => getProperTime(el.dt, 'dayNumber') === ((new Date().getDay() + 2) > 7 ? (new Date().getDay() + 2) - 7 : (new Date().getDay() + 2))).map( el => getProperTime(el.dt, 'time')),
             datasets: [{
                 label: 'Today',
                 data: responseHistory.data.hourly.concat(responseHourly.data.hourly.filter( el => getProperTime(el.dt, 'dayNumber') === (new Date().getDay() + 1))).map( el => getTempInC(el.temp)),
@@ -85,7 +85,7 @@ export const getAssetsByCity = async (setCurrentWeather, setIsLoaded, cities, se
             },
             {
                 label: 'Tomorrow',
-                data: responseHourly.data.hourly.filter( el => getProperTime(el.dt, 'dayNumber') === (new Date().getDay() + 2)).map( el => getTempInC(el.temp)),
+                data: responseHourly.data.hourly.filter( el => getProperTime(el.dt, 'dayNumber') === ((new Date().getDay() + 2) > 7 ? (new Date().getDay() + 2) - 7 : (new Date().getDay() + 2))).map( el => getTempInC(el.temp)),
                 tension: 0.1,
                 borderColor: 'orange',
                 backgroundColor: 'orange',
